@@ -212,6 +212,15 @@ do_dump_reset_stats(int argc, char *argv[])
 }
 
 void
+do_switch_cpu(int argc, char *argv[])
+{
+    if (argc > 0)
+        usage();
+
+    m5_switch_cpu();
+}
+
+void
 do_read_file(int argc, char *argv[])
 {
     if (argc > 0)
@@ -352,6 +361,7 @@ struct MainFunc mainfuncs[] = {
     { "initparam",      do_initparam,        "[key] // key must be shorter"
                                              " than 16 chars" },
     { "sw99param",      do_sw99param,        "" },
+    { "switchcpu",      do_switch_cpu,       "" },
 #ifdef linux
     { "pin",            do_pin,              "<cpu> <program> [args ...]" }
 #endif
